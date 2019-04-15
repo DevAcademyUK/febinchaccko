@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit or Remove Employees - HR Application</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+</head>
+<body>
+<table class="table table-hover">
+    <thead class="thead-dark">
+    <tr>
+        <th scope = "col">Employee ID</th>
+        <th scope = "col">Title</th>
+        <th scope = "col">Forename</th>
+        <th scope = "col">Surname</th>
+        <th scope = "col">DOB</th>
+        <th scope = "col">Address1</th>
+        <th scope = "col">Town</th>
+        <th scope = "col">County</th>
+        <th scope = "col">Postcode</th>
+        <th scope = "col">Phone</th>
+        <th scope = "col">Email ID</th>
+        <th scope = "col">Position</th>
+        <th scope = "col">Start Date</th>
+    </tr>
+    </thead>
+    <tbody class="tbody-light">
+    <tr th:each="employees :${employee}">
+        <td th:text="${employees.getEmployeeID()}"></td>
+        <td th:text="${employees.getTitle()}"></td>
+        <td th:text="${employees.getForename()}"></td>
+        <td th:text="${employees.getSurname()}"></td>
+        <td th:text="${employees.getdOB()}"></td>
+        <td th:text="${employees.getAddress1()}"></td>
+        <td th:text="${employees.getTown()}"></td>
+        <td th:text="${employees.getCounty()}"></td>
+        <td th:text="${employees.getPostCode()}"></td>
+        <td th:text="${employees.getContactNumber()}"></td>
+        <td th:text="${employees.getEmailAddress()}"></td>
+        <td th:text="${employees.getPosition()}"></td>
+        <td th:text="${employees.getStartDate()}"></td>
+    </tr>
+    </tbody>
+</table>
+<div class="container text-center">
+
+    <form action="#" th:action="@{/employeeEdit}" th:object="${aEmployee}" method="post">
+        <p>Here you can enter the ID of the book that you would like to Edit</p>
+        <p>Book ID: <input type="text" th:field="*{employeeID}"></p>
+        <input class="btn btn-warning" type="submit" value="Edit Employee"/>
+    </form>
+    <form action="#" th:action="@{/employeeDelete}" th:object="${aEmployee}" method="post">
+        <p>Here you can enter the ID of the book that you would like to Remove</p>
+        <p>Book ID: <input type="text" th:field="*{employeeID}"></p>
+        <input class="btn btn-danger" type="submit" value="Remove Employee"/>
+    </form>
+</div>
+<div class="container text-center mt-3">
+    <a class="btn btn-success" href="/">Back To Homepage</a>
+</div>
+</body>
+</html>

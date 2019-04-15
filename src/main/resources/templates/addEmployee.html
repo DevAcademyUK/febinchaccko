@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Employee - HRApplication</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="text-center jumbotron pt-1">
+    <h1 class="pb-2">Add a new employee to your company </h1>
+    <form action="#" th:action="@{/employeeAdded}" th:object="${employee}" method="post">
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Employee ID</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{employeeID}" th:value="${employee.getEmployeeID()}"readonly/>
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Title</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{title}" placeholder="Title e.g. Mr, Mrs"/>
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Forename</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{forename}" placeholder="Forname"/>
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Surname</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{surname}" placeholder="Surname "/>
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Date of Birth</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{dOB}" placeholder="Date of Birth"/>
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Address1</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{address1}" placeholder="Address"/>
+        <p class="col-md-12 font-weight-bold mb-1 mt-1"/>Town</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{town}"/>
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">County</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{county}" placeholder="County" />
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Postcode</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{postCode}" />
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Phone</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{contactNumber}"/>
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Email</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{emailAddress}" />
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Position</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{position}" placeholder="Manager, HR"/>
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Start Date</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{startDate}"/>
+        <br/>
+        <input class="btn btn-danger mt-2" type="reset" vslue="Reset"/>
+        <input class="btn btn-primary mt-2 m1-2" type="submit" value="Submit"/>
+    </form>
+</div>
+<div class="text-center">
+    <a class="btn btn-success" href="/">Back to Homepage</a>
+</div>
+</body>
+</html>
